@@ -1,8 +1,11 @@
 package rocks.zipcode;
 
+import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
 
@@ -168,6 +171,40 @@ class TestHashSet {
         while(value.hasNext()){
             System.out.println(value.next());
         }
+    }
+
+    @Test
+    public void retentionTest(){
+
+        HashSet<Person> hashset = new HashSet<>();
+        HashSet<Person> test = new HashSet<>();
+        Person[] persArray = new Person[2];
+
+        Person bob = new Person("Bob", 2021);
+        Address bobAdd = new Address("604 Dickeson", "Sothy", "29101", "USA");
+        bob.addAddress(bobAdd);
+
+        Person steve = new Person("Steve", 2021);
+        Address steveAdd = new Address("1303 Pineapple St", "Sothy", "20131", "MARS");
+        steve.addAddress(steveAdd);
+
+        Person roger = new Person("roger", 2021);
+        Address rogerAdd = new Address("1303 Pineapple St", "Sothy", "20131", "MARS");
+        roger.addAddress(rogerAdd);
+
+        hashset.add(bob);
+        hashset.add(steve);
+        hashset.add(roger);
+        System.out.println(hashset.size());
+
+        test.add(bob);
+        hashset.retainAll(test);
+        System.out.println(hashset.size());
+
+        //Assert.assertEquals(true,  );
+
+
+
     }
 
 }

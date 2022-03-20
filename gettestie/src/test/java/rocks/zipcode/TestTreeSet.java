@@ -1,2 +1,4 @@
-package rocks.zipcode;public class TestTreeSet {
+package rocks.zipcode;
+
+public class TestTreeSet {
 }
